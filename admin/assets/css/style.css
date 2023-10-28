@@ -1,0 +1,59 @@
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+.row1content{
+  font-family: 'Robot Slab', serif;
+  font-size: 25px;
+}
+.row2img{
+  background-size: cover;
+  background-position: absolute;
+  background-repeat: no-repeat;
+}
+.row2content{
+  font-family: 'Robot Slab', serif;
+  font-size: 25px;
+  margin-top: 40px;
+}
+.row4content{
+  width:200px; 
+  height:200px; 
+  border-radius:50%; 
+  background-color:ffffff; 
+  border:1px solid;
+  box-shadow: light-grey;
+}
+.overlay{
+  background-image: linear-gradient(to top,
+  rgba(0,0,0,0.7),
+  rgba(0,0,0,0.7)),
+  url("assets/images/pic9.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: absolute;
+}
+ 
+nav{
+  height: 100px;
+}
+.brandname {
+  font-size: 40px;
+  margin-left: 60px;
+}
+.custom_nav_link a:hover{
+  text-decoration: underline;
+  color: lightskyblue;
+}
+.custom_nav_link{
+  font-size: 20px;
+}
+.custom_navlink_div{
+  margin-left: 500px;
+}
+.navbar_btn{
+  text-decoration: none; 
+}
+
