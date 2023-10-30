@@ -1,7 +1,8 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include "../classes/Price.php";
+
+
 if ($_POST) {
     if(isset($_POST["del_btn"])){
         $price_id  = $_POST["price_id"];

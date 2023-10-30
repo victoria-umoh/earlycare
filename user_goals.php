@@ -58,8 +58,8 @@ if (isset($_SESSION["user_id"])) {
                 <h5 class="mb-0">All Goal</h5>
             </div>
 
-             <div class="card">
-            <div class="bg-light">
+            <div class="card-body">
+              <div class="bg-light">
                 <h1 class="text-center">Goal Data</h1>
                 <form method="post" action="process/user_goals_process.php">
                         <!--check if error msg is available in session-->
@@ -231,7 +231,7 @@ if (isset($_SESSION["user_id"])) {
                           <!-- End of error message -->
                         </div>
                         <div class="card-body" style="min-height:200px">
-                          <a href="user_goals.php" class="btn btn-success">Add New</a>
+                          <a href="profile.php" class="btn btn-success">Add New</a>
 
                           <table class="table table-striped table-dark">
                             <thead>

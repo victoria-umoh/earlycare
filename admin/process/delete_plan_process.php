@@ -1,7 +1,8 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include "../classes/Plan.php";
+
+
 if ($_POST) {
     if(isset($_POST["del_btn"])){
         $plan_id  = $_POST["plan_id"];

@@ -1,6 +1,5 @@
 <?php
 require_once "Db.php";
-//require_once "../utilities/DateDiff.php";
 
 class UserGoal extends Db{
     //weightloss method

@@ -1,12 +1,13 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include_once "../classes/PlanCategory.php";
+require_once "../utilities/sanitizer.php";
+
     if($_POST){
         if (isset($_POST["edit_cat"])) {
             //sanitize
-            $plan_cat_title = $_POST["title"];
-            $plan_cat_desc = $_POST["desc"];
+            $plan_cat_title = sanitizer($_POST["title"]);
+            $plan_cat_desc = sanitizer($_POST["desc"]);
             $plan_cat_id = $_POST["plan_cat_id"];
 
             //validation

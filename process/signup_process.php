@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include_once "../utilities/sanitizer.php";
 include_once "../classes/User.php";
 

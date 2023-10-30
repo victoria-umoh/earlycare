@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include "partials/header.php";
 require_once "classes/Goal.php";
 
@@ -35,7 +34,7 @@ require_once "classes/Goal.php";
                     <!-- <input type="hidden" name="goal_id" id="goal_id"> -->
                     <div class="form-outline">
                       <label class="form-label" for="form7Example1">Goal Title</label>
-                      <input type="text" id="form7Example1" class="form-control" name="title" />
+                      <input type="text" id="form7Example1" class="form-control" name="title" required />
                     </div>
                   </div>
 

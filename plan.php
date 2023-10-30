@@ -65,12 +65,12 @@ session_start();
   <input type="hidden" name="user_id" value="<?php echo $user["user_id"];?>" id="user_id" />
   <div class="form-group">
     <label for="first-name" class="form-label">First Name</label>
-    <input type="text" class="form-control" id="first-name" />
+    <input type="text" class="form-control" id="first-name" required />
   </div>
 
   <div class="form-group mb-3">
     <label for="last-name" class="form-label">Last Name</label>
-    <input type="text" class="form-control" id="last-name" />
+    <input type="text" class="form-control" id="last-name" required />
   </div>
 
   <div class="form-submit mt-3 mb-3">

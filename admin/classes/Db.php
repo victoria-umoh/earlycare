@@ -1,5 +1,4 @@
 <?php
-    error_reporting(E_ALL);
     include_once "config.php";
     class Db{
         private $dbHost = DBHOST ;

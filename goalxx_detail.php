@@ -1,24 +1,11 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include "partials/earlycarenav.php";
 include "classes/User.php";
 include "classes/Goal.php";
 
 
-// if ($_POST) {
-//   if (isset($_POST['goal_detail'])) {
-//     $user_id = $_POST["user_id"];
-//     $goal_id = $_POST['goal_id'];
-//     $goal_title = $_POST["goal_title"];
-//     $goal_description = $_POST['goal_description'];
 
-    // $goal1 = new Goal();
-    // $goal = $goal1->get_goal_detail($goal_id);
-
-    //  print_r($goal_id);
-//   }
-// }
 ?>
 
 <div class="container">

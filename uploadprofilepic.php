@@ -38,7 +38,7 @@
             <form action="process/uploadprofilepic_process.php" method="post" enctype="multipart/form-data">
                 <div>
                 <label for="profilepic">Change profile picture</label>
-                <input type="file" name="profile" id="profile" class="form-control">
+                <input type="file" name="profile" id="profile" class="form-control" required />
                 </div>
                 <input type="hidden" name="user_id" value="<?php    echo $user_id;  ?>">
                 <input type="submit" value="Change" name="uploadpicbtn" class="btn btn-primary mt-3">

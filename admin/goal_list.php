@@ -11,11 +11,11 @@ $goals = $goal->fetch_all_goals();
 
 
 
-<div class="container mt-5">
+<div class="container-fluid mt-5">
     
         <div class="row">
           <!--BACK BUTTON  -->
-        <div class="col-md-3 mb-4">
+        <div class="col-md-2 mb-4">
             <div class="card mb-4">
               <div class="card-header py-3">
               </div>
@@ -25,14 +25,14 @@ $goals = $goal->fetch_all_goals();
             </div>
         </div>
     <!-- BACK BUTTON -->
-  <div class="col-md-9 mb-4">
+  <div class="col-md-10 mb-4">
     <div class="card mb-4">
       <div class="card-header py-3">
         <h5 class="mb-0">All Goals</h5>
       </div>
       <!-- SESSION MSG -->
             <div>
-                <!--check if error msg is available in session-->
+                <!--check if msg is available in session-->
                         <?php
                         if (isset($_SESSION["goal_msg"])) {                           
                         ?>
@@ -84,7 +84,7 @@ $goals = $goal->fetch_all_goals();
             </div>
       <div class="card-body" style="min-height:200px">
         <a href="add_goal.php" class="btn btn-success">Add New</a>
-       <table class="table table-striped">
+       <table class="table table-striped table-dark">
   <thead>
     <tr>
       <th scope="col">#</th>

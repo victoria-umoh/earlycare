@@ -1,7 +1,8 @@
 <?php
 session_start();
 require_once "../classes/User.php";
-error_reporting(E_ALL);
+
+
     if ($_POST) {
         if (isset($_POST["uploadpicbtn"])) {
             $user_id = $_POST["user_id"];

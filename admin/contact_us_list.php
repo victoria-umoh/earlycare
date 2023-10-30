@@ -13,12 +13,12 @@ $deleted = $contact->delete_contact_us('contact_us_id');
 ?>
 
 <!-- VIEW ALL CATEGORY ON A TABLE -->
-<div class="container mt-5" id="category_list">
+<div class="container-fluid mt-5" id="category_list">
     
     <div class="row">
 
     <!--BACK BUTTON  -->
-          <div class="col-md-3 mb-4">
+          <div class="col-md-2 mb-4">
             <div class="card mb-4">
               <div class="card-header py-3">
               </div>
@@ -29,7 +29,7 @@ $deleted = $contact->delete_contact_us('contact_us_id');
           </div>
     <!-- BACK BUTTON -->
 
-  <div class="col-md-9 mb-4">
+  <div class="col-md-10 mb-4">
     <div class="card mb-4">
       <div class="card-header py-3">
         <h5 class="mb-0">All CONTACT US</h5>

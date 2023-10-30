@@ -1,6 +1,8 @@
 <?php
-error_reporting(E_ALL);
+session_start();
 include "../classes/User.php";
+
+
 if ($_POST) {
     if(isset($_POST["del_btn"])){
         //echo "deleted som";

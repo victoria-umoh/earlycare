@@ -14,12 +14,12 @@ $healths = $health->fetch_all_healthtips();
 ?>
 
 <!-- VIEW ALL HEALTH TIPS ON A TABLE -->
-<div class="container mt-5">
+<div class="container-fluid mt-5">
     <div class="row">
 
 
             <!--BACK BUTTON  -->
-        <div class="col-md-3 mb-4">
+        <div class="col-md-2 mb-4">
           <div class="card mb-4">
             <div class="card-header py-3">
             </div>
@@ -31,7 +31,7 @@ $healths = $health->fetch_all_healthtips();
     <!-- BACK BUTTON -->
   
 
-  <div class="col-md-9 mb-4">
+  <div class="col-md-10 mb-4">
     <div class="card mb-4">
       
       <div class="card-header py-3">

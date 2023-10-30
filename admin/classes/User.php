@@ -1,6 +1,4 @@
 <?php
-//session_start();
-error_reporting(E_ALL);
 include_once "Db.php";
 
 class User extends Db
@@ -52,7 +50,7 @@ class User extends Db
             if ($user_count < 1) {
                //if it is not in db, send error return msg
                return "Either email or password is incorrect";
-            //    exit();
+               exit();
             }
 
             //if it is in db, fetch that user email for d user to login to ur app
@@ -65,7 +63,7 @@ class User extends Db
             if ($password_matches){
                $_SESSION["user_id"] = $user["user_id"];  //store pwd in session
                header("location:../profile.php");      //redirect user to their profile
-                //exit();
+               exit();
             }
         }catch (PDOException $ex){
             // Handle database exceptions

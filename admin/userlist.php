@@ -81,20 +81,21 @@ $user_deleted = $user->delete_user("user_id");
                   <td><?php echo $user["user_height"]; ?></td>
                   <td><?php echo $user["user_gender"]; ?></td>
                   <td><?php echo $user["user_dob"]; ?></td>
-                  <td><img src="../uploads/<?php echo $user["user_dp"]; ?>" width="50" alt="User Image"></td>
+                  <td><img src="../uploads/<?php echo $user["user_dp"]; ?>" width="50" alt="User Image" /></td>
                   <td><?php echo $user["user_reg_date"]; ?></td>
                   <td><?php echo $user["user_role"]; ?></td>
                   <td style="display:flex !important;">
-
-
-                    <!-- DELETE BUTTON FORM -->
                     <form action="process/delete_user_process.php" method="post">
-                      <input type="hidden" name="user_id" value="<?php echo $user["user_id"]; ?>">
-                      <button type="submit" name="del_btn" class='btn btn-sm btn-danger'><i class='fa fa-trash'></i>Delete</button>
+                      <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
+                      <button type="submit" name="del_btn" class='btn btn-sm btn-danger'><i class='fa fa-trash'></i>&nbsp;Delete</button>
                     </form>
+                    &nbsp;&nbsp;
+                
                 </td>
               </tr>
-            <?php } ?>
+            <?php 
+              } 
+            ?>
           </tbody>
         </table>
 

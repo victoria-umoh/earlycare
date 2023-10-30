@@ -4,8 +4,8 @@ session_start();
 require_once "classes/Goal.php";
 require_once "partials/header.php";
 
-//getting book from query string
-//check first if d book exist
+//getting goal from query string
+//check first if d goal exist
 //since we are expecting a number, check d value is numeric
 //then call d method nd pass d number as an argument
 
@@ -20,8 +20,6 @@ if(isset($_GET["id"])){
     $goal = new Goal();
     $goals = $goal->get_goal_detail($goal_id);
 
-    // print_r($goals);
-    // exit();
     if(!$goals){
       header("location:goal_list.php");
       exit();

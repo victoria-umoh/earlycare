@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 
 require_once "../classes/User.php";
 require_once "../classes/Goal.php";
@@ -78,7 +77,11 @@ require_once "../classes/UserGoal.php";
                 
                 if($response){
                     $_SESSION['goal_insert'] = "goal insert successful";
-                    header("location:../user_goals.php");
+                    // header("location:../user_goals.php");
+                    // exit();
+
+                    $url = "user_goals.php?id=$goal_id";
+                    header("location:../$url");
                     exit();
                 }else{
                     $_SESSION['goal_insert'] = "error, unable to insert goal";

@@ -1,5 +1,7 @@
-<?php include "partials/earlycarenav.php"; 
+<?php 
 session_start();
+include "partials/earlycarenav.php"; 
+
 //require_once "guards/user_guard.php";
 require_once "classes/User.php";
 

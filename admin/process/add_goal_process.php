@@ -1,14 +1,13 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 require_once "../classes/Goal.php";
-
+require_once "../utilities/sanitizer.php";
 
 if ($_POST) {
 	if (isset($_POST['add_goal'])){
 		//$goal_id = $_POST['goal_id'];
-		$goal_title = $_POST['title'];
-		$goal_description = $_POST['desc'];
+		$goal_title = sanitizer($_POST['title']);
+		$goal_description = sanitizer($_POST['desc']);
 
 		// INSTANTIATE CLASS OF GOAL
 

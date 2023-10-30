@@ -1,9 +1,10 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include "partials/header.php";
 require_once "classes/Price.php";
 require_once "classes/PlanCategory.php";
+
+
 $price_cat = new PlanCategory();
 $categories = $price_cat->fetch_category();
 
@@ -24,6 +25,8 @@ $categories = $price_cat->fetch_category();
             </div>
           </div>
     <!-- BACK BUTTON -->
+
+
         <div class="col-md-6">
             <div class="card-header py-3">
                 <h5 class="mb-0">Add Price</h5>
@@ -35,7 +38,7 @@ $categories = $price_cat->fetch_category();
                     <input type="hidden" name="price_id" id="price_id">
                     <div class="form-outline">
                       <label class="form-label" for="form7Example1"> Price Amount</label>
-                      <input type="number" id="form7Example1" class="form-control" name="pname" />
+                      <input type="number" id="form7Example1" class="form-control" name="pname" required />
                     </div>
                   </div>
 

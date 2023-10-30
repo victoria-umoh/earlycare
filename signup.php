@@ -34,22 +34,22 @@ session_start();
                         
                         <p class="text-center">Already have an account? <a href="login.php">Login</a></p>
                         <label for="fname" class="visually-hidden"></label>
-                        <input type="text" class="form-control mt-4" id="fname" name="firstname" placeholder="First Name*">
+                        <input type="text" class="form-control mt-4" id="fname" name="firstname" placeholder="First Name*" required />
     
                         <label for="lname" class="visually-hidden"></label>
-                        <input type="text" class="form-control mt-4" id="lname" name="lastname" placeholder="Last Name*">
+                        <input type="text" class="form-control mt-4" id="lname" name="lastname" placeholder="Last Name*" required />
     
                         <label for="email" class="visually-hidden"></label>
-                        <input type="email" class="form-control mt-4" id="email" name="email" placeholder="Email Address*">
+                        <input type="email" class="form-control mt-4" id="email" name="email" placeholder="Email Address*" required />
     
                         <label for="pwd" class="visually-hidden"></label>
-                        <input type="password" class="form-control mt-4" id="pwd" name="password" placeholder="Password*">
+                        <input type="password" class="form-control mt-4" id="pwd" name="password" placeholder="Password*" required />
     
                         <label for="confirmpwd password" class="visually-hidden"></label>
-                        <input type="password" class="form-control mt-4" id="confirmpwd" name="confirmpassword" placeholder="Confirm password*">
+                        <input type="password" class="form-control mt-4" id="confirmpwd" name="confirmpassword" placeholder="Confirm password*" required />
                         
                         <label for="height" class="visually-hidden"></label>
-                        <input type="number" class="form-control mt-4" id="height" name="height" placeholder="Height in cm*">
+                        <input type="number" class="form-control mt-4" id="height" name="height" placeholder="Height in cm*" required />
 
                         <label for="gender" class="form-label mt-4">Select gender</label><br>
 
@@ -60,7 +60,7 @@ session_start();
                         <label for="female">female</label><br>
 
                         <label for="dob" class="form-label">DOB</label>
-                        <input type="date" class="form-control" id="dob" name="dob"/>
+                        <input type="date" class="form-control" id="dob" name="dob" required />
                         
                         
                         

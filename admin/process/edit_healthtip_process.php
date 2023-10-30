@@ -1,8 +1,9 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 require_once "../utilities/sanitizer.php";
 include_once "../classes/Healthtip.php";
+
+
     if($_POST){
         if (isset($_POST["edit_btn"])) {
             //sanitize
@@ -24,7 +25,7 @@ include_once "../classes/Healthtip.php";
                 }else{
                      $_SESSION["edit_healthtips"] = "error, health-tips update failed";
                     //category_list.php?id=1
-                    $url = "healthtips_list.php?id=$healthtips_id";
+                    $url = "../healthtips_list.php?id=$healthtips_id";
                     header("location:$url");
                     exit();
                 }

@@ -1,6 +1,7 @@
 <?php
-error_reporting(E_ALL);
 require_once "Db.php";
+
+
 class PlanCategory extends Db{
 
         //FETCH ALL CATEGORY

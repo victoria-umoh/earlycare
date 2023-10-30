@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include_once "../classes/User.php";
 include_once "../utilities/sanitizer.php";
 
@@ -25,7 +24,7 @@ if (isset($_SESSION["user_id"])) {
             header("location: ../profile.php#editProfile");
             exit();
         } else{
-            $_SESSION['updated'] = "An error occurred during the update or no changes were made.";
+            $_SESSION['updated'] = "An error occurred during the update.";
             header("location: ../profile.php#editProfile");
             exit();
         }

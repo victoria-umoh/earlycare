@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ALL);
 
 // database config or environment variables
 define("DBHOST", "localhost");

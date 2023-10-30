@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include "partials/earlycarenav.php";
 //require_once "guards/user_guard.php";
 ?>
@@ -54,9 +53,9 @@ include "partials/earlycarenav.php";
                         <!-- End of error message -->
                             <p class="text-center">New to EarlyCare? <a href="signup.php">Sign up for free</a></p>
                             <label for="email" class="visually-hidden"></label>
-                            <input type="email" class="form-control p-3" name="email" placeholder="Email Adrress*">
+                            <input type="email" class="form-control p-3" name="email" placeholder="Email Adrress*" required />
                             <label for="password" class="visually-hidden "></label>
-                            <input type="password" id="password" name="password" class="form-control mt-3 p-3" placeholder="Password*">
+                            <input type="password" id="password" name="password" class="form-control mt-3 p-3" placeholder="Password*" required />
                             <p class=""><a href="">Forgot password?</a></p>
 
                         

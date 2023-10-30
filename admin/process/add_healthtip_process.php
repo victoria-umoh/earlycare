@@ -1,15 +1,15 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 require_once "../classes/Healthtip.php";
 //require_once "../guards/admin_guard.php";
+require_once "../utilities/sanitizer.php";
 
 if ($_POST) {
     if (isset($_POST["add_book"])) {
         $healthtips_id = $_POST["healthtips_id"];
-        $healthtips_title = $_POST["title"];
-        $category_id = $_POST["category"];
-        $healthtips_description = $_POST["desc"];
+        $healthtips_title = sanitizer($_POST["title"]);
+        $category_id = sanitizer($_POST["category"]);
+        $healthtips_description = sanitizer($_POST["desc"]);
         $profile = $_FILES["cover"];
 
     //file error vaidation

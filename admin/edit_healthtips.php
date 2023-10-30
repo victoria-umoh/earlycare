@@ -5,8 +5,8 @@ require_once "classes/Healthtip.php";
 require_once "partials/header.php";
 require_once "classes/Category.php";
 
-//getting book from query string
-//check first if d book exist
+//getting category from query string
+//check first if d category exist
 //since we are expecting a number, check d value is numeric
 //then call d method nd pass d number as an argument
 

@@ -1,8 +1,9 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include_once "../classes/Goal.php";
 include_once "../utilities/sanitizer.php";
+
+
     if($_POST){
         if (isset($_POST["edit_goal"])) {
             //sanitize
@@ -24,7 +25,7 @@ include_once "../utilities/sanitizer.php";
                 }else{
                      $_SESSION['goal_edit'] = "error, unable to update goal";
                     //category_list.php?id=1
-                    $url = "goal_list.php?id=$goal_id";
+                    $url = "../goal_list.php?id=$goal_id";
                     header("location:$url");
                     exit();
                 }

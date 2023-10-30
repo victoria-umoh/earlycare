@@ -1,6 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
 include_once "partials/header.php";
 ?>
 

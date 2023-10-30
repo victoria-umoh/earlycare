@@ -1,14 +1,13 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 require_once "../classes/Price.php";
-
+require_once "../utilities/sanitizer.php";
 
 if ($_POST) {
 	if (isset($_POST['add_btn'])){
 		//$goal_id = $_POST['goal_id'];
-		$price_name = $_POST['pname'];
-		$cat_price_id = $_POST['category'];
+		$price_name = sanitizer($_POST['pname']);
+		$cat_price_id = sanitizer($_POST['category']);
 
 		// INSTANTIATE
 		$price = new Price();

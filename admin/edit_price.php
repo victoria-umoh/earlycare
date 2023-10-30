@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include "partials/header.php";
 require_once "classes/Price.php";
 require_once "classes/PlanCategory.php";

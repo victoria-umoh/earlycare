@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ALL);
 include_once "Db.php";
 
 class User extends Db{

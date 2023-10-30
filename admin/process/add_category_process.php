@@ -1,14 +1,13 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 require_once "../classes/Category.php";
-
+require_once "../utilities/sanitizer.php";
 
 if ($_POST) {
 	if (isset($_POST['add_cat'])) {
 		$plan_cat_id = $_POST['cat_id'];
-		$cat_title = $_POST['title'];
-		$cat_desc = $_POST['desc'];
+		$cat_title = sanitizer($_POST['title']);
+		$cat_desc = sanitizer($_POST['desc']);
 
 		// INSTANTIATE CLASS OF CATEGORY
 

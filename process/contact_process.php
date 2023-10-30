@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 require_once "../classes/Contact.php";
 require_once "../utilities/sanitizer.php";
 

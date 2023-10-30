@@ -1,7 +1,8 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include "../classes/Category.php";
+
+
 if ($_POST){
     if(isset($_POST["del_btn"])){
         $cat_id = $_POST["cat_id"];

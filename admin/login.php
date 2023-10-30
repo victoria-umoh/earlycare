@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include "partials/earlycarenav.php";
 ?>
    <div class="container-fluid">
@@ -27,9 +26,9 @@ include "partials/earlycarenav.php";
                             <!-- End of error message -->
                         <h3 class="text-center">Admin Only</h3>
                             <label for="email" class="visually-hidden"></label>
-                            <input type="email" class="form-control p-3" name="email" placeholder="Email Adrress*">
+                            <input type="text" class="form-control p-3" name="email" placeholder="Email Adrress*" required />
                             <label for="password" class="visually-hidden "></label>
-                            <input type="password" id="password" name="password" class="form-control mt-3 p-3" placeholder="Password*">
+                            <input type="password" id="password" name="password" class="form-control mt-3 p-3" placeholder="Password*" required />
                             <p class=""><a href="">Forgot password?</a></p>
 
                         

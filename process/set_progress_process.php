@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include "../utilities/sanitizer.php";
 require_once "../classes/Goal.php";
 require_once "../classes/UserProgress.php";

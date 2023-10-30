@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include_once "../classes/User.php";
 require_once "../utilities/sanitizer.php";
 
@@ -36,7 +35,7 @@ if ($_POST) {
         if($addUser){
             //$_SESSION["login_error"] = "Login successful";
             header("location:../profile.php");
-            // die();
+            // exit();
         }else{
             $_SESSION["login_error"] = "Login unsuccessful";
         }

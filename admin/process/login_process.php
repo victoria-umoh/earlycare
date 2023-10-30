@@ -1,12 +1,13 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include_once "../classes/User.php";
+require_once "../utilities/sanitizer.php";
+
 
 if ($_POST) {
     if (isset($_POST["loginbtn"])) {
 
-        $user_email = $_POST["email"];
+        $user_email = sanitizer($_POST["email"]);
         $user_password = $_POST["password"];
 
         //validate email nd password not empty
@@ -20,7 +21,6 @@ if ($_POST) {
         if (strlen($user_password) < 8) {
             //error message stored in session
             $_SESSION["login_error"] = "password must be 8 characters";
-            //redirect to register page
             header("location:../login.php");
             exit();
         }
@@ -34,12 +34,11 @@ if ($_POST) {
             $_SESSION["login_error"] = "Login successful";
             header("location:../profile.php");
             die();
+        }else{
+            $_SESSION["login_error"] = "Login unsuccessful";
+            header("location:../login.php");
+            die();
         }
-        // else{
-        //     $_SESSION["login_error"] = "Login unsuccessful";
-        //     header("location:login.php");
-        //     die();
-        // }
 
     }else{
         header("location:../login.php");

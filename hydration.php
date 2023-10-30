@@ -4,6 +4,8 @@ include "partials/earlycarenav.php";
 require_once "classes/Goal.php";
 require_once "classes/User.php";
 //require_once "guards/user_guard.php";
+
+
 if (isset($_SESSION["user_id"])) {
     $user_id = $_SESSION["user_id"];
      $userr = new User();
@@ -12,10 +14,7 @@ if (isset($_SESSION["user_id"])) {
 
 if(isset($_GET['id'])){
     $goal_id = $_GET['id'];
-
-    // $goal = new Goal();
-    // $goals = $goal->get_goal_detail($goal_id);
-    // print_r($goals);    
+  
 }
 
 

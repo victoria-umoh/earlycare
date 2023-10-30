@@ -1,5 +1,7 @@
 <?php
 include "Db.php";
+
+
 class Price extends Db{
 
     //INSERT 

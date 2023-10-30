@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include "partials/header.php";
 require_once "classes/Category.php";
 
@@ -24,7 +23,9 @@ require_once "classes/Category.php";
               </div>
             </div>
           </div>
-    <!-- BACK BUTTON -->
+          <!-- BACK BUTTON -->
+
+
         <div class="col-md-6">
             <div class="card-header py-3">
                 <h5 class="mb-0">Add Category</h5>
@@ -53,7 +54,7 @@ require_once "classes/Category.php";
                     <input type="hidden" name="cat_id" id="cat_id">
                     <div class="form-outline">
                       <label class="form-label" for="form7Example1">Category Title</label>
-                      <input type="text" id="form7Example1" class="form-control" name="title" />
+                      <input type="text" id="form7Example1" class="form-control" name="title" required />
                     </div>
                   </div>
 

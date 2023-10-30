@@ -1,7 +1,8 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include "../classes/Goal.php";
+
+
 if ($_POST){
     if(isset($_POST["del_btn"])){
         $goal_id = $_POST["goal_id"];

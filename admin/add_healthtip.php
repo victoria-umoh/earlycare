@@ -45,14 +45,14 @@ require_once "classes/Category.php";
                 <input type="hidden" name="healthips_id" id="healthips_id">
                 <div class="form-outline">
                   <label class="form-label" for="form7Example1">Health-Tip Title</label>
-                  <input type="text" id="form7Example1" class="form-control" name="title" />
+                  <input type="text" id="form7Example1" class="form-control" name="title" required />
                 </div>
               </div>
 
               <div class="col-md-6">
                 <div class="form-outline">
                   <label class="form-label" for="form7Example1">Health-Tip Cover Picture</label>
-                  <input type="file" id="form7Example1" class="form-control" name="cover" />
+                  <input type="file" id="form7Example1" class="form-control" name="cover" required />
                 </div>
               </div>
             </div>

@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ALL);
 include "Db.php";
 
 class Hydration extends Db{

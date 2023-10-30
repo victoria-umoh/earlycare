@@ -1,7 +1,8 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 include "../classes/Contact.php";
+
+
 if ($_POST){
     if(isset($_POST["del_btn"])){
         $contact_us_id = $_POST["contact_us_id"];
