@@ -23,7 +23,7 @@ require_once "../classes/UserGoal.php";
    
     
         // Validate inputs
-        if(empty($current_value) || empty($target_value) || empty($activity_level)){
+        if(empty($current_value) || empty($target_value) || empty($activity_level) || empty($start_date) || empty($finish_date)  ){
             $_SESSION['weightloss_insert'] = "all fields are required";
             header("location:../user_goals.php");
             exit();     
@@ -60,33 +60,30 @@ require_once "../classes/UserGoal.php";
         }
 
             // Example usage:
-            $user_gender = $user_gender;          // Replace with the user's gender
-            $user_dob = $user_dob;                 // Replace with the user's age
-            $current_value = $current_value;          // Replace with the user's current weight in kilograms
-            $user_height = $user_height;         // Replace with the user's height in centimeters
-            $activity_level = $activity_level; // Replace with the user's activity level (e.g., sedentary, active)
-            $target_value = $target_value; // Replace with the desired amount of weight loss in kilograms
+            $user_gender = $user_gender;          
+            $user_dob = $user_dob;                
+            $current_value = $current_value;          
+            $user_height = $user_height;       
+            $activity_level = $activity_level; 
+            $target_value = $target_value; 
 
             $dailyCaloricIntake = calculateDailyCaloricIntakeForWeightLoss($user_gender, $user_dob, $current_value, $user_height, $activity_level, $target_value);
 
             $_SESSION["success"] = "To achieve {$target_value}, aim for a daily caloric intake of approximately {$dailyCaloricIntake} calories.";
             
-            //instantioate method to insert to database
+            //instantiate method to insert to database
                 $usergoal = new UserGoal();
                 $response = $usergoal->insert_user_goal($user_id, $goal_id, $current_value, $target_value, $activity_level, $start_date, $finish_date);
                 
                 if($response){
                     $_SESSION['goal_insert'] = "goal insert successful";
-                    // header("location:../user_goals.php");
-                    // exit();
-
-                    $url = "user_goals.php?id=$goal_id";
-                    header("location:../$url");
-                    exit();
+                        $url = "user_goals.php?id=$goal_id";
+                        header("location:../$url");
+                        exit();
                 }else{
                     $_SESSION['goal_insert'] = "error, unable to insert goal";
-                    header("location:../user_goals.php");
-                    exit();
+                        header("location:../user_goals.php");
+                        exit();
                 }   
             }
         } //end of if post isset
@@ -97,21 +94,22 @@ require_once "../classes/UserGoal.php";
                 //men: BMR = BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age in years) + 5
                 //women: BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age in years) − 161
                 //$bmr = "";
+                
                 echo $current_value = (int)$current_value;
                 echo $user_height = (int)$user_height;
-                if($user_gender == "male" && $activity_level == "sedantary") {
-                    $result = (10 * $current_value) + (6.25 * $user_height) - (5 * $user_dob) + 5;
-                    return $result;
-                }elseif($user_gender == "male" && $activity_level == "active") {
-                    $result = (10 * $current_value) + (6.25 * $user_height) - (5 * $user_dob) + 500;
-                    return $result;
-                }elseif($user_gender == "female" && $activity_level == "sedantary") {
-                    $result = (10 * $current_value) + (6.25 * $user_height) - (5 * $user_dob) - 161;
-                    return $result;
-                }elseif($user_gender == "female" && $activity_level == "active") {
-                    $result = (10 * $current_value) + (6.25 * $user_height) - (5 * $user_dob) + 161;
-                    return $result;
-                }
+                    if($user_gender == "male" && $activity_level == "sedantary") {
+                        $result = (10 * $current_value) + (6.25 * $user_height) - (5 * $user_dob) + 5;
+                        return $result;
+                    }elseif($user_gender == "male" && $activity_level == "active") {
+                        $result = (10 * $current_value) + (6.25 * $user_height) - (5 * $user_dob) + 500;
+                        return $result;
+                    }elseif($user_gender == "female" && $activity_level == "sedantary") {
+                        $result = (10 * $current_value) + (6.25 * $user_height) - (5 * $user_dob) - 161;
+                        return $result;
+                    }elseif($user_gender == "female" && $activity_level == "active") {
+                        $result = (10 * $current_value) + (6.25 * $user_height) - (5 * $user_dob) + 161;
+                        return $result;
+                    }
                 
 
             //return $calc_Bmr();

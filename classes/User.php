@@ -15,8 +15,9 @@ class User extends Db{
         //count all rows in db 
         $user_count = $stmt->rowCount();
         if($user_count > 0) {
-        $_SESSION["signup_error"] = "User with this email already exist"; 
-              
+            $_SESSION["signup_error"] = "User with this email already exist"; 
+            header("location:../signup.php");
+            exit();
         }
 
         //IF IT DONT EXIST, INSERT INTO DB
@@ -57,8 +58,9 @@ class User extends Db{
         //if usercount is less than one, email exists
         if ($user_count < 1) {
            //if it is not in db, send error return msg
-           return "Either email or password is incorrect";
-        //    exit();
+           $_SESSION['signup_error'] = "either email or password is incorrect";
+            header("location:../signup.php");
+            exit();
         }
 
         //if it is in db, fetch that user email for d user to login to ur app
@@ -68,14 +70,25 @@ class User extends Db{
         $password_matches = password_verify($user_password, $user["user_password"]);
         
         //if it matches, set session
-        if ($password_matches) {
-           $_SESSION["user_id"] = $user["user_id"];  //store pwd in session
-           header("location:../profile.php");      //redirect user to their profile
-            //exit();
-        }
-        //else return error msg
+        if($password_matches){
+            if($user["user_role"] === "user"){
+                $_SESSION["user_id"] = $user["user_id"];  //store pwd in session
+                $_SESSION["user_role"] = $user["user_role"];
+                $_SESSION['login_error'] = "Login successful";
+                header("location:../profile.php");      //redirect user to their profile
+                exit();
+            }else{
+                $_SESSION["login_error"] = "You do not have access to this profile (Invalid or missing role)";
+                $_SESSION["login_error"] = "You do not have access to this profile (User ID not set)";
+                header("location:../login.php");
+                exit();
+            }
+        }else{ //return error msg
         //return "password is incorrect";
-        // exit();
+            $_SESSION['login_error'] = "password is incorrect";
+            header("location:../signup.php");
+            exit();
+        }
    } //END OF LOGIN METHOD
 
      //fetching a user detail with user id

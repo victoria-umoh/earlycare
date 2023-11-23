@@ -1,5 +1,4 @@
 <!-- footer -->
- <!-- footer -->
  <div class="row p-5" style="background-color: #E2E2E2;">
           
           <div class="col-md-4 text-center">

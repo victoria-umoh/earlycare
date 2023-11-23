@@ -48,19 +48,7 @@
         <li class="nav-item"><a class="nav-link active text-light" aria-current="page" href="index.php">Home</a></li>
         <li class="nav-item"><a class="nav-link active text-light" href="about.php">About</a></li>
         <li class="nav-item"><a class="nav-link active text-light" href="contact.php">Contact</a></li>
-        <!-- <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-light" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Plan</a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="plan.php">Basic</a></li>
-            <li><a class="dropdown-item" href="plan.php">Standard</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="plan.php">Premium</a></li>
-          </ul>
-        </li> -->
       </ul>
-      <!-- <form class="d-flex">
-        <a class="btn btn-danger rounded-pill navbar_btn" type="button" href="login.php">Log in</a>
-        <a class="btn btn-light text-black mx-2 rounded-pill navbar_btn" type="button"href="signup.php">Sign Up</a>
-      </form> -->
     </div>
   </div>
 </nav>

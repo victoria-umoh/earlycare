@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "../guards/user_guard.php";
 include_once "../classes/User.php";
 require_once "../utilities/sanitizer.php";
 
@@ -15,14 +16,14 @@ if ($_POST) {
         if (empty($user_email) || empty($user_password)) {
             $_SESSION["login_error"] = "All fields are required";
             header("location:../login.php");
-            // exit();
+            exit();
         }
 
         
         if (strlen($user_password) < 8) {
             //error message stored in session
             $_SESSION["login_error"] = "password must be 8 characters";
-            //redirect to register page
+            //redirect to login page
             header("location:../login.php");
             exit();
         }
@@ -33,11 +34,13 @@ if ($_POST) {
         $addUser = $user1->login($user_email, $user_password);
 
         if($addUser){
-            //$_SESSION["login_error"] = "Login successful";
+            $_SESSION["login_error"] = "Login successful";
             header("location:../profile.php");
-            // exit();
+            exit();
         }else{
             $_SESSION["login_error"] = "Login unsuccessful";
+            header("location:../login.php");
+            exit();
         }
 
     }else{

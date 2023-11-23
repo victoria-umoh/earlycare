@@ -21,12 +21,6 @@ if ($_POST) {
         header("location:../signup.php");
          exit();
        }
-
-      //  elseif(!isset($user_gender) || ){
-      //   $_SESSION["signup_error"] = "please select one gender";
-      //   header("location:../signup.php");
-      //    exit();
-      //  }
        
        //validate password string length
        else if (strlen($user_password) < 8) {

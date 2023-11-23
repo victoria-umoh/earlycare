@@ -1,6 +1,7 @@
 <?php
 include_once "Db.php";
 
+
 class User extends Db
 {
    //SIGNUP METHOD
@@ -37,46 +38,66 @@ class User extends Db
         }      
     }//REGISTER METHOD ENDS HERE
 
-    //LOGIN METHOD
     public function login($user_email, $user_password){
-        //check if email is in db 
-        $sql = "SELECT * FROM user WHERE user_email = ?"; 
-        try{
+        // Check if email is in the database 
+        $sql = "SELECT * FROM user WHERE user_email = ?";    
+        try {
             $stmt = $this->connect()->prepare($sql);
             $stmt->bindParam(1, $user_email, PDO::PARAM_STR);
             $stmt->execute();
             $user_count = $stmt->rowCount();
-            //if usercount is less than one, email exists
+    
+            // If usercount is less than one, email does not exist
             if ($user_count < 1) {
-               //if it is not in db, send error return msg
-               return "Either email or password is incorrect";
+               $_SESSION["login_error"] = "Either email or password is incorrect";
+               header("location:../login.php");
                exit();
             }
-
-            //if it is in db, fetch that user email for d user to login to ur app
+    
+            // If it is in the database, fetch the user details
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             
-            //check if pasword matches using password verify
+            // Check if the password matches using password_verify
             $password_matches = password_verify($user_password, $user["user_password"]);
             
-            //if it matches, set session
-            if ($password_matches){
-               $_SESSION["user_id"] = $user["user_id"];  //store pwd in session
-               header("location:../profile.php");      //redirect user to their profile
-               exit();
+            // If the password matches, set session
+            if ($password_matches) {
+                // Ensure whoever logs in is an admin
+                if ($user["user_role"] === "admin") {
+                    $_SESSION["user_id"] = $user["user_id"];  // Store user id in session
+                    $_SESSION["user_role"] = $user["user_role"]; 
+                    var_dump($_SESSION);  // Add this line for debugging                   
+                    header("location:../profile.php");       // Redirect user to their profile
+                    exit();
+                } else {
+                    $_SESSION["user_role"] = "default";
+                    $_SESSION["guard_msg"] = "You do not have admin privileges";
+                    var_dump($_SESSION);  // Add this line for debugging
+                    header("location:../login.php");
+                    exit();
+                }
+            } else {
+                $_SESSION["login_error"] = "password is incorrect";
+                header("location:../login.php");
+                exit();
             }
-        }catch (PDOException $ex){
+        } catch(PDOException $ex) {
             // Handle database exceptions
             error_log("Database error: " . $ex->getMessage());
-            return false; // Return false to indicate an error occurred
-        } catch (Exception $ex){
+            $_SESSION["login_error"] = "An unexpected error occurred";
+            header("location:../login.php");
+            exit();
+        } catch(Exception $ex) {
             // Handle other exceptions
             error_log("Error: " . $ex->getMessage());
-            return false; // Return false to indicate an error occurred
+            $_SESSION["login_error"] = "An unexpected error occurred";
+            header("location:../login.php");
+            exit();
         }
-    } //END OF LOGIN MMETHOD
-
-
+    }
+    
+    
+    
      //fetching a user detail with user id
     public function fetch_user_details($user_id){
         $sql = "SELECT * FROM user WHERE user_id = ?";

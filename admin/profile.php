@@ -1,7 +1,6 @@
 <?php
     session_start();
     require_once "../partials/header.php";
-    //include "guards/admin_guard.php";
     require_once "classes/User.php";
     require_once ("classes/Healthtip.php");
     require_once "classes/Category.php";
@@ -87,6 +86,14 @@
                 font-family:serif;
                 text-decoration:none;
                 font-weight:600px;
+            }
+            .card-body:hover{
+                background-color: #f0f0f0;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                transition: 0.7s;
+            }
+            .card-body {
+                transition: background-color 0.7s ease-in-out, box-shadow 0.7s ease-in-out;
             }
         </style>
 
@@ -205,6 +212,7 @@
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
+            
             <!-- Main Content -->
             <div id="content">
 
@@ -366,18 +374,18 @@
                                             </a>
                                         </div>
                                     </li>
-
                                 </ul>
-
                             </nav>
                             <!-- End of Topbar -->
                         </div>
                     </div>
                     <hr>
                 <div class="row mb-5 mt-5">
+                    
                     <div class="col">
                     <p id="ptag"></p>
                     <div class="row">
+                        
                         <div class="col d-flex justify-content-center" id="my_dashboard">
                             <div class="card" style="width: 14rem;">
                                 <div class="card-body">
@@ -526,6 +534,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+
     <script src="assets/scripts/jquery.js"></script>       
     <script>
         $(document).ready(function(){

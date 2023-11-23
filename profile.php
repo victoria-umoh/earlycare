@@ -38,12 +38,6 @@
                 View goal
             </a>
             <a href="set_progress.php" class="list-group-item list-group-item-action bg-dark text-light">Set Progress</a>
-            <a href="index.php" class="list-group-item list-group-item-action bg-dark text-light">Health tips</a>
-            <!-- <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Reviews</a> -->
-            <!-- <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Community</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-light">FAQ</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Rating</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Settings</a> -->
         </div>
         
         <div class="col-md-10" style="font-family:serif; font-size: 20px;">
@@ -113,7 +107,7 @@
             <!-- </div> -->
             <hr>
     <div class="row" id="page_content">
-        <div class="col" style="border:1px solid gray;">
+        <div class="col">
             <div class="row">
                 <div class="col-md-6">
                     <div><p>To get started on your health journey, select a goal</p></div>
@@ -123,7 +117,7 @@
                             <select name="category" id="goalSelect" class="form-control" style="font-size:20px;">
                                 <option value="">select one</option>
                                 <?php foreach ($goals as $goal) { 
-                                    // GENERATE A UNIQUE ID FOR EACH OPTION BASED ON THE GOAL ID
+                                    // GENERATED A UNIQUE ID FOR EACH OPTION BASED ON THE GOAL ID
                                     $optionId = "goal_option_{$goal["goal_id"]}";
                                 ?>
                                     <option value="<?php echo $goal["goal_id"]; ?>" id="<?php echo $optionId; ?>" class="goal_option">
@@ -139,7 +133,7 @@
                         <!-- unique form id -->
                     </div>
                 </div>
-                <div class="col-md-6" style="border:1px solid gray;">
+                <div class="col-md-6">
                     <img src="assets/images/care1.jpg" class="img-fluid">
                 </div>
                 
@@ -147,7 +141,24 @@
         </div>
 
 
-        
+         <!-- Row 5 -->
+         <div class="row">
+          <div class="col text-center mt-3 mb-3"><h1>Latest Articles</h1> </div>
+        </div>
+        <!-- Row 5 -->
+
+        <div class="row">
+          <?php foreach ($healthtips as $all_healthtips) { ?>
+          <div class="col-md-2">
+            <div class="card">
+              <img src="uploads/<?php echo $all_healthtips['cover_image']; ?>" class="card-img-top" alt="Picture of two persons breathing">
+            <div class="card-body">
+              <h6 class=""><a href="articles/breathe.php" class="card-link text-decoration-none text-black"><?php echo $all_healthtips['healthtips_title'];  ?></a></h6>
+            </div>
+           </div>
+          </div>
+          <?php } ?>
+        </div>
     </div>
 
     <!-- goal cat -->

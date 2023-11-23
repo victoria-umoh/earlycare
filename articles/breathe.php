@@ -17,7 +17,7 @@
 <body>
 <div class="container">
 	<div class="row mt-5">
-		<div class="col-md-2"><a href="../index.php" class="text-decoration-none"><i class="fa-solid fa-arrow-left"></i><b>Back</b></a></div>
+		<div class="col-md-2"><a href="../profile.php" class="text-decoration-none"><i class="fa-solid fa-arrow-left"></i><b>Back</b></a></div>
 	</div>
 	<div class="row">
 		<div class="col-md-6 offset-md-2 mt-5">

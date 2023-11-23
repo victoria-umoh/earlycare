@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "partials/earlycarenav.php";
+
 ?>
    <div class="container-fluid">
      <!-- START OF ROW 1 -->
@@ -10,20 +11,41 @@ include "partials/earlycarenav.php";
                 <div class="col-6 justify-content-center mt-5">
                     <form action="process/login_process.php" method="post" class="form-control bg-secondary rounded mt-5 mb-5">
                         <h1 class="text-center">Login</h1>
-                            <!--check if error msg is available in session-->
-                        <?php
-                            if (isset($_SESSION["login_error"])) {                           
-                            ?>
-                            <!-- display/echo error msg -->
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong><?php echo $_SESSION["login_error"]; ?></strong> You should check in on some of those fields below.
-                            </div>
-                            <!-- unset the displayed errored msg -->
-                            <?php unset($_SESSION["login_error"]); ?>                      
+                        <div>
+                                <!--check if error msg is available in session-->
                             <?php
-                            }
-                        ?>
+                                if (isset($_SESSION["guard_msg"])) {                           
+                                ?>
+                                <!-- display/echo error msg -->
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong><?php echo $_SESSION["guard_msg"]; ?></strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <!-- unset the displayed errored msg -->
+                                <?php unset($_SESSION["guard_msg"]); ?>                      
+                                <?php
+                                }
+                            ?>
                             <!-- End of error message -->
+                        </div>
+                        <div>
+                                <!--check if error msg is available in session-->
+                            <?php
+                                if (isset($_SESSION["login_error"])) {                           
+                                ?>
+                                <!-- display/echo error msg -->
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong><?php echo $_SESSION["login_error"]; ?></strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <!-- unset the displayed errored msg -->
+                                <?php unset($_SESSION["login_error"]); ?>                      
+                                <?php
+                                }
+                            ?>
+                            <!-- End of error message -->
+                        </div>
+                        
                         <h3 class="text-center">Admin Only</h3>
                             <label for="email" class="visually-hidden"></label>
                             <input type="text" class="form-control p-3" name="email" placeholder="Email Adrress*" required />

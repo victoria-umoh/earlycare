@@ -89,24 +89,7 @@ $healthtips = $healthtip->fetch_all_healthtips();
         </div>
         <!-- Row 4 -->
 
-        <!-- Row 5 -->
-        <div class="row">
-          <div class="col text-center mt-3 mb-3"><h1>Latest Articles</h1> </div>
-        </div>
-        <!-- Row 5 -->
-
-        <div class="row">
-          <?php foreach ($healthtips as $all_healthtips) { ?>
-          <div class="col-md-2">
-            <div class="card">
-              <img src="uploads/<?php echo $all_healthtips['cover_image']; ?>" class="card-img-top" alt="Picture of two persons breathing">
-            <div class="card-body">
-              <h6 class=""><a href="articles/breathe.php" class="card-link text-decoration-none text-black"><?php echo $all_healthtips['healthtips_title'];  ?></a></h6>
-            </div>
-           </div>
-          </div>
-          <?php } ?>
-        </div>
+       
         
         
 

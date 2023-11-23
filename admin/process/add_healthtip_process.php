@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once "../classes/Healthtip.php";
-//require_once "../guards/admin_guard.php";
 require_once "../utilities/sanitizer.php";
 
 if ($_POST) {

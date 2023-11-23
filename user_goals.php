@@ -115,12 +115,12 @@ if (isset($_SESSION["user_id"])) {
 
                     <div class="row mb-3">
                         <div class="col-md-6"><label for="start_date" class="form-label">start date</label></div>
-                        <div class="col-md-6"><input type="datetime-local" name="start_date" id="start_date" class="form-control"></div>  
+                        <div class="col-md-6"><input type="datetime-local" name="start_date" id="start_date" class="form-control" required></div>  
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-md-6"><label for="finish_date" class="form-label">finish date</label></div>
-                        <div class="col-md-6"><input type="datetime-local" name="finish_date" id="finish_date" class="form-control"></div>  
+                        <div class="col-md-6"><input type="datetime-local" name="finish_date" id="finish_date" class="form-control" required></div>  
                     </div>
 
                     <div class="row mb-3">
