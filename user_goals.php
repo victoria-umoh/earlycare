@@ -1,10 +1,10 @@
 <?php 
 session_start();
+// require_once "guards/user_guard.php";
 include "partials/header.php"; 
 require_once "classes/Goal.php";
 require_once "classes/User.php";
 require_once "classes/UserGoal.php";
-//require_once "guards/user_guard.php";
 
 
 
@@ -21,15 +21,17 @@ if (isset($_SESSION["user_id"])) {
     $result = $user_goals->fetch_user_goal_details($user_id);
     //print_r($result);
 }
-    //COMING FROM PROFILE PAGE JAVASCRIPT
-    if(isset($_GET['id'])){
-      $goal_id = $_GET['id'];
 
-      $goals = new Goal();
-      $result = $goals->get_goal_detail($goal_id);
-      $results = $result['goal_title'];
-      //print_r($result);
-    }
+
+//COMING FROM PROFILE PAGE JAVASCRIPT
+if(isset($_GET['id'])){
+  $goal_id = $_GET['id'];
+
+  $goals = new Goal();
+  $result = $goals->get_goal_detail($goal_id);
+  $results = $result['goal_title'];
+  // print_r($result);
+}
     
 
 
@@ -148,10 +150,6 @@ if (isset($_SESSION["user_id"])) {
 </div>    
 <!-- GOAL CATEGORY -->
 
-<?php
-//include "partials/earlycarefooter.php";
-?>
-
 
 <!-- MODAL START -->
 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -187,7 +185,7 @@ if (isset($_SESSION["user_id"])) {
                 <div class="container-fluid">
                   <div class="row">
                     <!-- BACK BUTTON -->
-                    <div class="col-md-2 mb-4">
+                    <div class="col-md-1 mb-4">
                       <div class="card mb-4">
                         <div class="card-header py-3">
                         </div>
@@ -198,7 +196,7 @@ if (isset($_SESSION["user_id"])) {
                     </div>
                     <!-- BACK BUTTON -->
 
-                    <div class="col-md-10 mb-4">
+                    <div class="col-md-11 mb-4">
                       <div class="card mb-4">
                         <div class="card-header py-3">
                           <h5 class="mb-0">User Goal List</h5>
@@ -246,7 +244,6 @@ if (isset($_SESSION["user_id"])) {
                                 <th scope="col">gender</th>
                                 <th scope="col">goal start date</th>
                                 <th scope="col">goal finish date</th>
-                                <th scope="col">Date</th>
                                 <th scope="col">Days to go</th>
                                 <th scope="col">Action</th>
                               </tr>
@@ -258,20 +255,43 @@ if (isset($_SESSION["user_id"])) {
                                 $user1 = new UserGoal();
                                 $response = $user1->get_goal_detail($weightlos);
 
+
                                 $datee = new DateDiff();
                                 $dates = $datee->date_difference($weightloss['start_date'], $weightloss['finish_date']);
-                                $timedif = "";
-                                $timedif .=  $dates['days'] . " days : " ;
-                                $timedif .=  $dates['hours'] . "  hours : ";
-                                $timedif .=  $dates['minutes'] . "  minutes : ";
-                                $timedif .=  $dates['seconds'] . "  seconds";
-                                //echo $timedif . "<br>";
+                                  $timedif = "";
+
+                                  if (is_array($dates)) {
+                                      // If progress is ongoing, display the date difference
+                                      $timedif .= "";
+                                      $timedif .= $dates['days'] . " days : ";
+                                      $timedif .= $dates['hours'] . " hours : ";
+                                      $timedif .= $dates['minutes'] . " minutes : ";
+                                      $timedif .= $dates['seconds'] . " seconds : Less than a minute";
+                                  } else {
+                                      // If progress has ended or not started, display a message
+                                      $timedif .= $dates . "Progress has ended";
+                                  }
+
+                                  // echo $timedif . "<br>";
+
+                                // $datee = new DateDiff();
+                                // $dates = $datee->date_difference($weightloss['start_date'], $weightloss['finish_date']);
+                                // $timedif = "";
+                                // $timedif .=  $dates['days'] . " days : " ;
+                                // $timedif .=  $dates['hours'] . "  hours : ";
+                                // $timedif .=  $dates['minutes'] . "  minutes : ";
+                                // $timedif .=  $dates['seconds'] . "  seconds";
+                                // //echo $timedif . "<br>";
                               //print_r($dates);
                               
                                ?>
                                 <tr>
-                                  <!-- <td><?php //echo $weightloss['user_id']; ?></td> -->
-                                  <td><?php echo $response['goal_title']; ?></td>
+                                  <td>
+                                    <form action="view_progress.php" method="post">
+                                      <input type="text" name="progress_goal_id" value="<?php echo $response['goal_id']; ?>">
+                                      <button type="submit" name="submit_btn"><?php echo $response['goal_title']; ?></button>
+                                    </form>
+                                  </td> 
                                   <td><?php echo $weightloss['current_value']; ?></td>
                                   <td><?php echo $weightloss['target_value']; ?></td>
                                   <td><?php echo $user['user_height']; ?></td>
@@ -280,7 +300,6 @@ if (isset($_SESSION["user_id"])) {
                                   <td><?php echo $user['user_gender']; ?></td>
                                   <td><?php echo $weightloss['start_date']; ?></td>
                                   <td><?php echo $weightloss['finish_date']; ?></td>
-                                  <td><?php echo $weightloss['added_date']; ?></td>
                                   <td><?php echo $timedif; ?></td>
                                   <td><a href="set_progress.php?id=<?php echo $weightloss["user_goal_id"]?>" class='btn btn-sm btn-success'><i class='fa fa-pencil'></i> Set Progress</a></td>
                                 </tr>
@@ -296,7 +315,6 @@ if (isset($_SESSION["user_id"])) {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

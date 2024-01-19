@@ -38,6 +38,7 @@
                 View goal
             </a>
             <a href="set_progress.php" class="list-group-item list-group-item-action bg-dark text-light">Set Progress</a>
+            <a href="view_progress.php" class="list-group-item list-group-item-action bg-dark text-light">View Progress</a>
         </div>
         
         <div class="col-md-10" style="font-family:serif; font-size: 20px;">
@@ -468,39 +469,6 @@
 
     });
 
-
-    // Get references to select and form elements
-        // const goalSelect = document.getElementById('goalSelect');
-        // const weightLossForm = document.getElementById('weightLossForm');
-        // const fitnessForm = document.getElementById('fitnessForm');
-        // const nutritionForm = document.getElementById('nutritionForm');
-
-        // Add an event listener to the select element
-
-        // function goalTrack(){
-
-        //     goalSelect.addEventListener('change', () => { 
-        //     // Hide all forms initially
-        //     // weightLossForm.style.display = 'none';
-        //     // fitnessForm.style.display = 'none';
-        //     // nutritionForm.style.display = 'none';
-
-        //     // Determine which form to display based on the selected category
-        //     const selectedCategory = goalSelect.value;
-        //     alert(selectedCategory + " Hello ")
-        //     if (selectedCategory == 1) {
-        //         alert("hello");
-        //         weightLossForm.style.display = 'block';
-        //      } 
-        //      //else if (selectedCategory == 2) {
-        //     //     fitnessForm.style.display = 'block';
-        //     // } else if (selectedCategory == 3) {
-        //     //     nutritionForm.style.display = 'block';
-        //     // }
-        //     // Add more cases for additional categories
-        // });
-        // }
-
         
 </script>
 </div>
@@ -510,37 +478,37 @@
 
 <!-- MODAL START -->
 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-body">
-            <?php
-                include "partials/header.php";
-                require_once "utilities/DateDiff.php";
-                require_once "classes/UserGoal.php";
+     <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-body">
+                <?php
+                    include "partials/header.php";
+                    require_once "utilities/DateDiff.php";
+                    require_once "classes/UserGoal.php";
 
-                //COMING FROM PROFILE PAGE 
-                  if (isset($_SESSION["user_id"])) {
-                    $user_id = $_SESSION["user_id"];
+                    //COMING FROM PROFILE PAGE 
+                    if (isset($_SESSION["user_id"])) {
+                        $user_id = $_SESSION["user_id"];
 
-                    $userr = new User();
-                    $user = $userr->fetch_user_details($user_id);
-                    //print_r($user);
+                        $userr = new User();
+                        $user = $userr->fetch_user_details($user_id);
+                        //print_r($user);
 
-                    $user_goals = new UserGoal();
-                    $result = $user_goals->fetch_user_goal_details($user_id);
-                    //print_r($result);
-                  }
-                  
-                  if(isset($_SESSION['days_difference'])) {
-                     $days_difference = $_SESSION['days_difference'];
-                    echo "Difference in days: $days_difference days";
-                  } 
+                        $user_goals = new UserGoal();
+                        $result = $user_goals->fetch_user_goal_details($user_id);
+                        //print_r($result);
+                    }
+                    
+                    if(isset($_SESSION['days_difference'])) {
+                        $days_difference = $_SESSION['days_difference'];
+                        echo "Difference in days: $days_difference days";
+                    } 
                 ?>
 
                 <div class="container-fluid">
                   <div class="row">
                     <!-- BACK BUTTON -->
-                    <div class="col-md-2 mb-4">
+                    <div class="col-md-1 mb-4">
                       <div class="card mb-4">
                         <div class="card-header py-3">
                         </div>
@@ -551,7 +519,7 @@
                     </div>
                     <!-- BACK BUTTON -->
 
-                    <div class="col-md-10 mb-4">
+                    <div class="col-md-11 mb-4">
                       <div class="card mb-4">
                         <div class="card-header py-3">
                           <h5 class="mb-0">User Goal List</h5>
@@ -584,12 +552,12 @@
                           <!-- End of error message -->
                         </div>
                         <div class="card-body" style="min-height:200px">
-                          <a href="user_goals.php" class="btn btn-success">Add New</a>
+                          <a href="profile.php" class="btn btn-success">Add New</a>
 
                           <table class="table table-striped table-dark">
                             <thead>
                               <tr>
-                                <th scope="col">user</th>
+                                <!-- <th scope="col">user</th> -->
                                 <th scope="col">goal title</th>
                                 <th scope="col">current value</th>
                                 <th scope="col">target value</th>
@@ -604,54 +572,58 @@
                                 <th scope="col">Action</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <?php foreach($result as $weightloss){
-                                $weightlos = $weightloss['goal_id'];
+                                <tbody>
+                                    <?php foreach($result as $weightloss){
+                                        $weightlos = $weightloss['goal_id'];
 
-                                $user1 = new UserGoal();
-                                $response = $user1->get_goal_detail($weightlos);
+                                        $user1 = new UserGoal();
+                                        $response = $user1->get_goal_detail($weightlos);
 
-                                $datee = new DateDiff();
-                                $dates = $datee->date_difference($weightloss['start_date'], $weightloss['finish_date']);
-                                $timedif = "";
-                                $timedif .=  $dates['days'] . " days : " ;
-                                $timedif .=  $dates['hours'] . "  hours : ";
-                                $timedif .=  $dates['minutes'] . "  minutes : ";
-                                $timedif .=  $dates['seconds'] . "  seconds";
-                                //echo $timedif . "<br>";
-                              //print_r($dates);
-                               ?>
-                                <tr>
-                                  <td><?php echo $weightloss['user_id']; ?></td>
-                                  <td><?php echo $response['goal_title']; ?></td>
-                                  <td><?php echo $weightloss['current_value']; ?></td>
-                                  <td><?php echo $weightloss['target_value']; ?></td>
-                                  <td><?php echo $user['user_height']; ?></td>
-                                  <td><?php echo $weightloss['activity_level']; ?></td>
-                                  <td><?php echo $user['user_dob']; ?></td>
-                                  <td><?php echo $user['user_gender']; ?></td>
-                                  <td><?php echo $weightloss['start_date']; ?></td>
-                                  <td><?php echo $weightloss['finish_date']; ?></td>
-                                  <td><?php echo $weightloss['added_date']; ?></td>
-                                  <td><?php echo $timedif; ?></td>
-                                  <td><a href="set_progress.php?id=<?php echo $weightloss["user_goal_id"]?>" class='btn btn-sm btn-success'><i class='fa fa-pencil'></i> Set Progress</a></td>
-                                </tr>
-                              <?php } ?>
-                            </tbody>
+                                        $datee = new DateDiff();
+                                        $dates = $datee->date_difference($weightloss['start_date'], $weightloss['finish_date']);
+                                        $timedif = "";
+                                        $timedif .=  $dates['days'] . " days : " ;
+                                        $timedif .=  $dates['hours'] . "  hours : ";
+                                        $timedif .=  $dates['minutes'] . "  minutes : ";
+                                        $timedif .=  $dates['seconds'] . "  seconds";
+                                        //echo $timedif . "<br>";
+                                        //print_r($dates);
+                                    ?>
+                                    <tr>    
+                                    <td>
+                                        <form action="view_progress.php" method="post">
+                                          <input type="hidden" name="progress_goal_id" value="<?php echo $response['goal_id']; ?>">
+                                          <button type="submit" name="submit_btn"><?php echo $response['goal_title']; ?></button>
+                                        </form>
+                                    </td> 
+                                    <td><?php echo $weightloss['current_value']; ?></td>
+                                    <td><?php echo $weightloss['target_value']; ?></td>
+                                    <td><?php echo $user['user_height']; ?></td>
+                                    <td><?php echo $weightloss['activity_level']; ?></td>
+                                    <td><?php echo $user['user_dob']; ?></td>
+                                    <td><?php echo $user['user_gender']; ?></td>
+                                    <td><?php echo $weightloss['start_date']; ?></td>
+                                    <td><?php echo $weightloss['finish_date']; ?></td>
+                                    <td><?php echo $weightloss['added_date']; ?></td>
+                                    <td><?php echo $timedif; ?></td>
+                                    <td><a href="set_progress.php?id=<?php echo $weightloss["user_goal_id"]?>" class='btn btn-sm btn-success'><i class='fa fa-pencil'></i> Set Progress</a></td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
                           </table>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
       </div>
     </div>
   </div>
 </div>
+
 <?php include "partials/earlycarefooter.php"; ?>
 <!-- MODAL END -->

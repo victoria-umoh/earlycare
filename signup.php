@@ -17,15 +17,13 @@ session_start();
                             <?php
                             if (isset($_SESSION["signup_error"])) {                           
                             ?>
-
                             <!-- display error msg -->
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong><?php echo $_SESSION["signup_error"]; ?></strong> You should check in on some of those fields below.
+                            <strong><?php echo $_SESSION["signup_error"]; ?></strong> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
-
                             <!-- unset the displayed errored msg -->
-                            <?php unset($_SESSION["signup_error"]); ?>
-                            
+                            <?php unset($_SESSION["signup_error"]); ?>                           
                             <?php
                             }
                             ?>

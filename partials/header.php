@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Montserrat:wght@500;700&family=Nunito+Sans:opsz@6..12&family=PT+Serif&family=Roboto+Slab&family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <title>Home Page</title>
 <style type="text/css">
   .overlay{
@@ -34,6 +34,7 @@
       background-position: absolute;
     }
 </style>
+</head>
 <body>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg sticky-top" style="background-color:#143566;">

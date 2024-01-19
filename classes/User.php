@@ -78,13 +78,12 @@ class User extends Db{
                 header("location:../profile.php");      //redirect user to their profile
                 exit();
             }else{
-                $_SESSION["login_error"] = "You do not have access to this profile (Invalid or missing role)";
-                $_SESSION["login_error"] = "You do not have access to this profile (User ID not set)";
-                header("location:../login.php");
+                $_SESSION["signup_error"] = "Please sign up to continue";
+                header("location:../signup.php");
                 exit();
             }
-        }else{ //return error msg
-        //return "password is incorrect";
+        }else{ 
+        //return error msg "password is incorrect";
             $_SESSION['login_error'] = "password is incorrect";
             header("location:../signup.php");
             exit();

@@ -2,7 +2,7 @@
 session_start();
 include "../utilities/sanitizer.php";
 require_once "../classes/Goal.php";
-require_once "../classes/UserProgress.php";
+require_once "../classes/Progress.php";
 
 
 if($_POST){
@@ -20,11 +20,11 @@ if($_POST){
         }
 
         //instantiate
-        $progress = new UserProgress();
+        $progress = new Progress();
         $progress_set = $progress->add_progress($goal_id, $progress_value, $comment);
             if ($progress_set) {
                 $_SESSION['set_progress'] = "Progress added successfully";
-                header("location:../set_progress.php");
+                header("location:../view_progress.php");
                 exit();
             }else{
                 $_SESSION['set_progress'] = "error, unable to add progress";

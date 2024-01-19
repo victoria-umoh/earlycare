@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once "../guards/user_guard.php";
 include_once "../classes/User.php";
 require_once "../utilities/sanitizer.php";
 

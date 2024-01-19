@@ -91,16 +91,17 @@ if (isset($_SESSION["user_id"])) {
                     <div class="row mb-3">
                         <div class="col-md-6"><label for="goal_title" class="form-label">Goal Title</label></div>
                         <div class="col-md-6">
-                        <input type="text" name="goal_title" id="goal_title" value="Hydration"  class="form-control" readonly />    
-                        <!-- <input type="text" name="goal_title" id="goal_title" value="<?php //echo $results; ?>"  class="form-control" readonly /></div> -->
+                        <input type="text" name="goal_title" id="goal_title" value="Weightloss"  class="form-control" readonly />
+                            <!-- <input type="text" name="goal_title" id="goal_title" value="<?php //echo $results; ?>"  class="form-control" readonly /> -->
+                        </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-md-6"><label for="current_value" class="form-label">current water intake value</label></div>
+                        <div class="col-md-6"><label for="current_value" class="form-label">current weight value in kg</label></div>
                         <div class="col-md-6"><input type="number" name="current_value" id="current_value" class="form-control" required /></div>
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col-md-6"><label for="target_value" class="form-label">target water intake value</label></div>
+                        <div class="col-md-6"><label for="target_value" class="form-label">target weight value in kg</label></div>
                         <div class="col-md-6"><input type="number" name="target_value" id="target_value" class="form-control" required /></div>  
                     </div>
 

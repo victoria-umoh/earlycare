@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once "../classes/User.php";
 require_once "../classes/Goal.php";
 require_once "../utilities/sanitizer.php";
@@ -30,12 +29,7 @@ require_once "../classes/UserGoal.php";
         } else{
 
         function calculateDailyCaloricIntakeForWeightLoss($user_gender, $user_dob, $current_value, $user_height, $activity_level, $target_value){
-            // Constants
-            // echo "$current_value..current_value, $user_height..user_height i am here 2";
-            // $current_value = (int)$current_value;
-            // $user_height = (int)$user_height;
-            // $answer= $current_value + $user_height;
-            // echo $answer;
+            
             $caloriesPerKgOfWeightLoss = 7700; // Calories required to lose 1kg of weight
 
             // Calculate BMR using the Mifflin-St Jeor formula or another appropriate formula
@@ -44,14 +38,7 @@ require_once "../classes/UserGoal.php";
                 
             // Calculate the total caloric deficit needed for the desired weight loss
             $totalCaloricDeficit = (int)$target_value * (int) $caloriesPerKgOfWeightLoss;
-            // if (is_numeric($target_value) && is_numeric($caloriesPerKgOfWeightLoss)) {
-            //     $totalCaloricDeficit = (int)$target_value * (int)$caloriesPerKgOfWeightLoss;
-            // } elseif(is_numeric($target_value) || is_numeric($caloriesPerKgOfWeightLoss)) {
-            //     $totalCaloricDeficit = (int)$target_value * (int)$caloriesPerKgOfWeightLoss;
-            //     // Handle the case where one or both variables are not numeric
-            //     // You might display an error message or set a default value, for example.
-            // }
-            
+           
 
             // Determine the daily caloric intake required for weight loss
             $dailyCaloricIntakeForLoss = $bmr - ($totalCaloricDeficit / 30); // Assuming a 30-day month
@@ -79,22 +66,19 @@ require_once "../classes/UserGoal.php";
                     $_SESSION['goal_insert'] = "goal insert successful";
                         $url = "user_goals.php?id=$goal_id";
                         header("location:../$url");
+                        // header("location:../user_goals.php");
                         exit();
                 }else{
                     $_SESSION['goal_insert'] = "error, unable to insert goal";
-                        header("location:../user_goals.php");
+                        $url = "user_goals.php?id=$goal_id";
+                        header("location:../$url");
                         exit();
                 }   
             }
         } //end of if post isset
 
             function calc_Bmr($user_gender, $activity_level, $current_value, $user_height, $user_dob) {
-                // Calculate BMR based on gender and activity level (you can customize this calculation)
-                //calculate Basal Metabolic(BMR) using Mifflin-St Jeor formula
-                //men: BMR = BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age in years) + 5
-                //women: BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age in years) − 161
-                //$bmr = "";
-                
+               
                 echo $current_value = (int)$current_value;
                 echo $user_height = (int)$user_height;
                     if($user_gender == "male" && $activity_level == "sedantary") {
@@ -110,33 +94,8 @@ require_once "../classes/UserGoal.php";
                         $result = (10 * $current_value) + (6.25 * $user_height) - (5 * $user_dob) + 161;
                         return $result;
                     }
-                
-
             //return $calc_Bmr();
         }
-
-//     function date_difference($start_date, $finish_date) {
-//         // Create DateTime objects for the start_date and finish_date
-//         $start_date = new DateTime($start_date);
-//         $finish_date = new DateTime($finish_date);
-//         $currentDateTime = new DateTime();
-
-//         if ($start_date <= $currentDateTime) {
-//             // Calculate the difference between the current date and $finish_date
-//             $interval = $currentDateTime->diff($finish_date);
-//         } else {
-//             // Calculate the difference between $start_date and $finish_date
-//             $interval = $start_date->diff($finish_date);
-//         }
-
-//         // Return the difference as an array with days, hours, minutes, and seconds
-//         return array(
-//             'days' => $interval->days,
-//             'hours' => $interval->h,
-//             'minutes' => $interval->i,
-//             'seconds' => $interval->s
-//         );
-// }
 
 
 ?>

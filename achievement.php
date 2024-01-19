@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "classes/UserProgress.php";
+require_once "classes/Progress.php";
 require_once "partials/header.php";
 
 

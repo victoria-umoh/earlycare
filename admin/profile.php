@@ -245,7 +245,7 @@
                                 <label for="profilepic">Change profile picture</label>
                                 <input type="file" name="profile" id="profile" class="form-control">
                                 </div>
-                                <input type="hidden" name="user_id" value="<?php    echo $user_id;  ?>">
+                                <input type="hidden" name="user_id" value="<?php echo $user_id;  ?>">
                                 <input type="submit" value="Change" name="uploadpicbtn" class="btn btn-primary mt-3">
                             </form>
                         </div>
@@ -380,75 +380,75 @@
                         </div>
                     </div>
                     <hr>
-                <div class="row mb-5 mt-5">
-                    
+                <div class="row mb-5 mt-5">   
                     <div class="col">
-                    <p id="ptag"></p>
-                    <div class="row">
-                        
-                        <div class="col d-flex justify-content-center" id="my_dashboard">
-                            <div class="card" style="width: 14rem;">
-                                <div class="card-body">
-                                <div class="d-flex justify-content-center">
-                                    <img src="assets/images/users.png" alt="goal photo" width="70" class="">
+                        <p id="ptag"></p>
+                        <div class="row">
+                            
+                            <div class="col d-flex justify-content-center" id="my_dashboard">
+                                <div class="card" style="width: 14rem;">
+                                    <div class="card-body">
+                                    <div class="d-flex justify-content-center">
+                                        <img src="assets/images/users.png" alt="goal photo" width="70" class="">
+                                    </div>
+                                        <h5 class="card-title text-center mt-3" id="all_users">
+                                            <a href="userlist.php" class="card-link">All Users</a>
+                                        </h5>
+                                    </div>
                                 </div>
-                                    <h5 class="card-title text-center mt-3" id="all_users">
-                                        <a href="userlist.php" class="card-link">All Users</a>
-                                    </h5>
-                                </div>
-                            </div>
 
-                            <div class="card" style="width: 14rem;">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-center">
-                                    <img src="assets/images/widget.png" alt="goal photo" width="70" class="">
-                                </div>
-                                    <h5 class="card-title text-center mt-3" id="category"><a href="category_list.php" class="card-link">Category</a></h5>
-                            </div>
-                            </div>
-
-                            <div class="card" style="width: 14rem;">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-center">
-                                    <img src="assets/images/community.png" alt="goal photo" width="70" class="">
-                                </div>
-                                <h5 class="card-title text-center mt-3"><a href="price_list.php" class="card-link">Plan Prices</a></h5>
-                            </div>
-                        </div>
-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col d-flex justify-content-center">
-                            <div class="card" style="width: 14rem;">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-center">
-                                    <img src="assets/images/payment.png" alt="goal photo" width="70" class="">
-                                </div>
-                                <h5 class="card-title text-center mt-3"><a href="plan_list.php" class="card-link">Plan</a></h5>
-                            </div>
-                            </div>
-
-                            <div class="card" style="width: 14rem;">
+                                <div class="card" style="width: 14rem;">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-center">
-                                        <img src="assets/images/healthtips.png" alt="goal photo" width="70" class="">
+                                        <img src="assets/images/widget.png" alt="goal photo" width="70" class="">
                                     </div>
-                                    <h5 class="card-title text-center mt-3" id="healthtips"><a href="healthtips_list.php" class="card-link">Health Tips</a></h5>
+                                        <h5 class="card-title text-center mt-3" id="category"><a href="category_list.php" class="card-link">Category</a></h5>
+                                </div>
+                                </div>
+
+                                <div class="card" style="width: 14rem;">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-center">
+                                        <img src="assets/images/community.png" alt="goal photo" width="70" class="">
+                                    </div>
+                                    <h5 class="card-title text-center mt-3"><a href="price_list.php" class="card-link">Plan Prices</a></h5>
                                 </div>
                             </div>
 
-                            <div class="card" style="width: 14rem;">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col d-flex justify-content-center">
+                                <div class="card" style="width: 14rem;">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-center">
-                                        <img src="assets/images/rating.png" alt="goal photo" width="70" class="">
+                                        <img src="assets/images/payment.png" alt="goal photo" width="70" class="">
                                     </div>
-                                    <h5 class="card-title text-center mt-3"><a href="#" class="card-link">Reviews</a></h5>
+                                    <h5 class="card-title text-center mt-3"><a href="plan_list.php" class="card-link">Plan</a></h5>
+                                </div>
+                                </div>
+
+                                <div class="card" style="width: 14rem;">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-center">
+                                            <img src="assets/images/healthtips.png" alt="goal photo" width="70" class="">
+                                        </div>
+                                        <h5 class="card-title text-center mt-3" id="healthtips"><a href="healthtips_list.php" class="card-link">Health Tips</a></h5>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="width: 14rem;">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-center">
+                                            <img src="assets/images/rating.png" alt="goal photo" width="70" class="">
+                                        </div>
+                                        <h5 class="card-title text-center mt-3"><a href="#" class="card-link">Reviews</a></h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+
                         <div class="row">
                             <div class="col d-flex justify-content-center">
 
@@ -460,7 +460,7 @@
                                         <h5 class="card-title text-center mt-3"><a href="contact_us_list.php" class="card-link">Contact us</a></h5>
                                     </div>
                                 </div>
-                                  
+                                    
                                 <div class="card" style="width: 14rem;">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-center">
@@ -481,6 +481,21 @@
 
                             </div>
                         </div>
+
+                        <div class="row">
+                        <div class="col d-flex justify-content-center">
+
+                            <div class="card" style="width: 14rem;">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-center">
+                                        <img src="assets/images/progressbar.png" alt="goal photo" width="70" class="">
+                                    </div>
+                                    <h5 class="card-title text-center mt-3"><a href="progress_list.php" class="card-link">Progress</a></h5>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                         
                     </div>
 

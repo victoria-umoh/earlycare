@@ -1,10 +1,9 @@
 <?php
 require_once "Db.php";
 
-class UserProgress extends Db{
+class Progress extends Db{
         //ADD PROGRESS
     public function add_progress($goal_id, $progress_value, $comment){
-
         $sql = "INSERT INTO progress (goal_id, progress_value, comment) VALUES(?,?,?)";
                 $stmt = $this->connect()->prepare($sql);
                 $stmt -> bindParam(1, $goal_id, PDO::PARAM_INT);
@@ -20,17 +19,17 @@ class UserProgress extends Db{
                 }
         }
 
-        //FETCH PROGRESS
+        //FETCH ALL PROGRESS
     public function fetch_all_progress(){
         $sql = "SELECT * FROM progress"; 
-                $stmt = $this->connect()->prepare($sql);
-                $stmt->execute();
-                $progress = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                return $progress;
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        $progress = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $progress;
     }
 
         //A PROGRESS DETAIL
-    public function get_progress_detail($progress_id, $user_id){
+    public function get_progress_detail($progress_id){
         $sql = "SELECT * FROM progress WHERE progress_id = ?";
                 $stmt = $this->connect()->prepare($sql);
                 $stmt->bindParam(1, $progress_id, PDO::PARAM_INT);
@@ -46,7 +45,24 @@ class UserProgress extends Db{
                     }
      }
 
-        //DELETE PROGRESS
+        //FETCH PROGRESS WHR GOAL ID = GOAL
+    public function fetch_progress_detail($goal_id){
+        $sql = "SELECT * FROM progress WHERE goal_id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->bindParam(1, $goal_id, PDO::PARAM_INT);
+        $stmt->execute();
+                
+        $count = $stmt->rowCount();      //count how many recoreds with the id
+            if($count < 1) {                //if count is less than 1, no record with that id
+                return false;
+            }else{
+                //It means d goal exist, fetch it with d fetch function()
+                $progress = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $progress;
+            }
+     }
+
+        //UPDATE PROGRESS
     public function update_progress($user_id, $goal_id, $progress_value){
         $sql = "UPDATE progress SET user_id = ?, goal_id = ?, progress_value WHERE progress_id = ?";
                 $stmt = $this->connect()->prepare($sql);
@@ -65,8 +81,8 @@ class UserProgress extends Db{
                 }
     }
 
-        //delete goal method
-    public function delete_progress($goal_id){
+        //delete PROGRESS
+    public function delete_progress($progress_id){
         $sql = "DELETE FROM progress WHERE progress_id = ?";
                 $stmt = $this->connect()->prepare($sql);
                 $stmt->bindParam(1, $progress_id, PDO::PARAM_INT);
@@ -78,8 +94,9 @@ class UserProgress extends Db{
 }
 
 //ADMIN CAN ADD GOAL
-//$goal = new UserProgress();
-// $result=$goal->add_progress(2, "weightloss", "goal achieved");
+// $goal = new UserProgress();
+// // add_progress($goal_id, $progress_value, $comment)
+// $result=$goal->add_progress(2, "weightloss", "goal not achieved");
 // echo $result;
 // echo "<pre>";
 // print_r($result);
@@ -88,8 +105,8 @@ class UserProgress extends Db{
 
  
  //ADMIN CAN FETCH GOAL
-// $goal = new Goal();
-// $goal_list = $goal->fetch_all_goals();
+// $goal = new UserProgress();
+// $goal_list = $goal->fetch_progress_detail(2);
 // echo "<pre>";
 // print_r($goal_list);
 // echo "</pre>";

@@ -41,7 +41,7 @@
         
       <div class="row">
         <div class="col-md-12 bg-secondary text-light">
-            <footer class="text-center">
+            <footer class="text-center mt-4">
               <p> &copy; 2023 EarlyCare  |   Terms of use    |   privacy policy</p>
               <p>Do not Sell or Share My Personal Information</p>
             </footer>

@@ -22,10 +22,10 @@ class Goal extends Db{
         //goal fetcher for admin
     public function fetch_all_goals(){
         $sql = "SELECT * FROM goals"; 
-                $stmt = $this->connect()->prepare($sql);
-                $stmt->execute();
-                $goals = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                return $goals;
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        $goals = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $goals;
     }
 
         //get book detail method
